@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "project-template"
+version = "0.1.0"
+description = ""
+authors = ["Piotr Kruszynski <pj.kruszynski@gmail.com>"]
+readme = "README.md"
+packages = [{ include = "project_template", from = "src" }]
+
+[tool.poetry.dependencies]
+python = "^3.13"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "8.4.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+#add from pytest
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q"
+testpaths = [
+    "tests",
+    "conftest",
+]
+
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+    "smoke: business core tests",
+]
