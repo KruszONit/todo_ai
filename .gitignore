@@ -4,3 +4,5 @@
 **/*.pyc
 .DS_Store
 
+/pyproject.toml
+/poetry.lock
