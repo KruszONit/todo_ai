@@ -8,6 +8,9 @@ packages = [{ include = "project_template", from = "src" }]
 
 [tool.poetry.dependencies]
 python = "^3.13"
+mypy = "1.17.0"
+sphinx = "8.2.3"
+sphinx-rtd-theme = "3.0.2"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "8.4.1"
