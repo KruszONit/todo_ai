@@ -22,4 +22,4 @@ Provide a link to the related task in the GitHub project.
 Describe how the changes were tested or how to test them.
 
 ## Special Notes for Reviewers
-Which parts need special attention?
+Which parts need special attention.
