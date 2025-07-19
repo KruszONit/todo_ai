@@ -2,7 +2,11 @@
 .vscode
 
 **/*.pyc
+
 .DS_Store
 
-/pyproject.toml
-/poetry.lock
+envs
+
+.coverage
+
+docs/build
