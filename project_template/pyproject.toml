@@ -11,15 +11,13 @@ python = "^3.13"
 mypy = "1.17.0"
 sphinx = "8.2.3"
 sphinx-rtd-theme = "3.0.2"
+ruff = "0.12.4"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "8.4.1"
 pytest-cov = "6.2.1"
 
 
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
 
 #add from pytest
 [tool.pytest.ini_options]
@@ -47,3 +45,20 @@ omit = [
     "conftest/*"
 ]
 
+[tool.ruff]
+include = ["pyproject.toml", "src/project_template/**/*.py"]
+line-length = 120
+
+[tool.ruff.format]
+exclude = ["docs"]
+quote-style = "single"
+indent-style ="tab"
+docstring-code-format = true
+docstring-code-line-length = 50
+
+[tool.mypy]
+exclude = ["docs"]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
