@@ -1,0 +1,64 @@
+[tool.poetry]
+name = "core"
+version = "0.1.0"
+description = ""
+authors = ["Piotr Kruszynski <pj.kruszynski@gmail.com>"]
+readme = "README.md"
+packages = [{ include = "core", from = "src" }]
+
+[tool.poetry.dependencies]
+python = "^3.13"
+mypy = "1.17.0"
+sphinx = "8.2.3"
+sphinx-rtd-theme = "3.0.2"
+ruff = "0.12.4"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "8.4.1"
+pytest-cov = "6.2.1"
+
+
+
+#add from pytest
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = [
+    "-ra -q",
+    "--cov=src/core",
+    "--cov-config=.coveragerc",
+    "--cov-report=term-missing:skip-covered",
+    "--cov-fail-under=80",
+]
+testpaths = [
+    "tests",
+    "conftest",
+]
+
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+    "smoke: business core tests",
+]
+
+[tool.coverage.run]
+omit = [
+    "*/tests/*.py",
+    "conftest/*"
+]
+
+[tool.ruff]
+include = ["pyproject.toml", "src/core/**/*.py"]
+line-length = 120
+
+[tool.ruff.format]
+exclude = ["docs"]
+quote-style = "single"
+indent-style ="tab"
+docstring-code-format = true
+docstring-code-line-length = 50
+
+[tool.mypy]
+exclude = ["docs"]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
